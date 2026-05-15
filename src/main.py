@@ -154,16 +154,54 @@ def reset_streak() -> None:
         save_habits(habits)
 
 
+def get_progress_bar(percent: float, width: int = 20) -> str:
+    """Визуальная шкала прогресса"""
+    filled = int(width * percent / 100)
+    bar = '🟦' * filled + '🟥' * (width - filled)
+    return f'{[bar]} {round(percent, 1)}%'
+
+
+def show_statistics() -> None:
+    """Статистика + процент выполнения"""
+    habits = load_habits()
+    if not habits:
+        print('📊 Пока нет привычек для статистики. Добавь первую!')
+
+    total = len(habits)
+    completed_today = sum(1 for h in habits if h.get('done_today', False))
+    percent_today = (completed_today / total * 100) if total > 0 else 0
+
+    streaks = [h.get('streak', 0) for h in habits]
+    min_streak =  min(streaks) if streaks else 0
+    max_streak = max(streaks) if streaks else 0
+
+    print('\n' + '='*50)
+    print('📊 СТАТИСТИКА ПРОГРЕССА')
+    print('='*50)
+    print(f'Всего привычек: {total}')
+    print(f'Выполнено сегодня: {completed_today}')
+    print(f'Процент выполнения: {round(percent_today, 1)}%')
+    print(f'Минимальный стрик: {min_streak}')
+    print(f'Максимальный стрик: {max_streak}')
+
+    print('\n🏆 ТОП-3 по стрику:')
+    sorted_habits = sorted(habits, key=lambda h: h.get('streak', 0), reverse=True)[:3]
+    for i, habit in enumerate(sorted_habits, start=1):
+        print(f'{i}. {habit['name']} — {habit.get('streak', 0)} дней подряд')
+    print(f'\nПроцент выполнения: {get_progress_bar(percent_today)}')
+
+
 def main_menu() -> None:
     """Меню пользователя"""
     print('\n'+'='*50)
-    print('WHITE SPACE — ТРЕКЕР ПРИВЫЧЕК v0.2')
+    print('WHITE SPACE — ТРЕКЕР ПРИВЫЧЕК v0.3')
     print('='*50)
     print('1. Посмотреть привычки')
     print('2. Добавить новую привычку')
     print('3. Отметить выполненной')
-    print('4. Удалить привычку')
-    print('5. Выйти')
+    print('4. Посмотреть статистику')
+    print('5. Удалить привычку')
+    print('6. Выйти')
     print('='*50)
 
 
@@ -184,8 +222,10 @@ def run() -> None:
         elif choice == '3':
             mark_done()
         elif choice == '4':
-            delet_habit()
+            show_statistics()
         elif choice == '5':
+            delet_habit()
+        elif choice == '6':
             print('Продолжим в следующей итерации')
             break
         else:

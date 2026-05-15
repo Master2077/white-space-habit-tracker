@@ -2,47 +2,47 @@
   {
     "name": "Бегать по утрам",
     "created": "2026-05-12T19:41:12.778127",
-    "done_today": false,
-    "streak": 0,
-    "last_reset": "2026-05-13",
-    "count_for_reset_streak": 0
+    "done_today": true,
+    "streak": 2,
+    "last_reset": "2026-05-15",
+    "count_for_reset_streak": 1
   },
   {
     "name": "Читать 30 страниц в день",
     "created": "2026-05-12T19:41:28.690496",
     "done_today": false,
-    "streak": 0,
-    "last_reset": "2026-05-13",
-    "count_for_reset_streak": 0
+    "streak": 1,
+    "last_reset": "2026-05-15",
+    "count_for_reset_streak": 1
   },
   {
     "name": "Программировать 4 часа в день",
     "created": "2026-05-13T17:18:05.977088",
-    "done_today": true,
-    "streak": 1,
-    "last_reset": "2026-05-13"
+    "done_today": false,
+    "streak": 2,
+    "last_reset": "2026-05-15"
   },
   {
     "name": "Отэмиания",
     "created": "2026-05-13T17:23:03.864724",
-    "done_today": true,
-    "streak": 2,
-    "last_reset": "2026-05-13"
+    "done_today": false,
+    "streak": 3,
+    "last_reset": "2026-05-15"
   },
   {
     "name": "Подтягивания",
     "created": "2026-05-13T18:11:48.866184",
-    "done_today": true,
+    "done_today": false,
     "streak": 2,
-    "last_reset": "2026-05-13",
-    "count_for_reset_streak": 0
+    "last_reset": "2026-05-15",
+    "count_for_reset_streak": 1
   },
   {
     "name": "Планка 6 минут",
     "created": "2026-05-13T18:33:22.719235",
-    "streak": 5,
-    "last_reset": "2026-05-13",
-    "count_for_reset_streak": 1,
-    "done_today": true
+    "streak": 0,
+    "last_reset": "2026-05-15",
+    "count_for_reset_streak": 0,
+    "done_today": false
   }
 ]
